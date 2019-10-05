@@ -1,5 +1,5 @@
 var allMyCereals = []; //array
-var cerealsNumber = 30;
+var cerealsNumber = 40;
 
 function preload() {
   // put preload code here
@@ -12,8 +12,8 @@ function setup() {
   //create cereals
   for (var i = 0; i < cerealsNumber; i++) {
     //create instance
-    var tempX = random() * windowWidth;
-    var tempY = random() * windowHeight;
+    var tempX = random(windowWidth - windowWidth / 4, windowWidth / 4);
+    var tempY = random(windowHeight - windowHeight / 4, windowHeight / 4);
     var tempR = 50;
 
     var tempCereal = new Cereal(tempX, tempY, tempR);
@@ -64,7 +64,7 @@ function draw() {
   }
 
 }
- // eat cereals on click
+// eat cereals on click
 function mouseClicked() {
   for (var i = 0; i < allMyCereals.length; i++) {
     allMyCereals[i].click();
@@ -76,7 +76,7 @@ function Cereal(_x, _y, _diameter) {
   this.size = _diameter;
   this.x = _x;
   this.y = _y;
-  this.speed = 3;
+  //this.speed = 3;
   this.color = 'gold';
 
   var xDirection = 1;
@@ -92,16 +92,21 @@ function Cereal(_x, _y, _diameter) {
 
   // floating cereals
   this.move = function() {
-    this.x += xDirection * this.speed;
-    this.y += yDirection * this.speed;
-    // vertical bouncing
-    if (this.y > windowHeight  || this.y < 0) {
-      yDirection = -yDirection
-    }
-    // orizontal bouncing
-    if (this.x > windowWidth  || this.x < 0) {
-      xDirection = -xDirection
-    }
+    // this.x += xDirection * this.speed;
+    // this.y += yDirection * this.speed;
+    // // vertical bouncing
+    // if (this.y > windowHeight  || this.y < 0) {
+    //   yDirection = -yDirection
+    // }
+    // // orizontal bouncing
+    // if (this.x > windowWidth  || this.x < 0) {
+    //   xDirection = -xDirection
+    // }
+    push()
+    frameRate(15);
+    this.x = this.x + random(-20, 20);
+    this.y = this.y + random(-20, 20);
+    pop()
   }
 
   //display method
