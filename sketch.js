@@ -104,8 +104,8 @@ function Cereal(_x, _y, _diameter) {
     // }
     push()
     frameRate(15);
-    this.x = this.x + random(-20, 20);
-    this.y = this.y + random(-20, 20);
+    this.x = this.x + random(-10, 10);
+    this.y = this.y + random(-10, 10);
     pop()
   }
 
