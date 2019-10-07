@@ -25,6 +25,14 @@ function setup() {
 
 function draw() {
   background('coral');
+  //text
+  push()
+
+  fill(0);
+  textSize(20);
+  text('Click on the cereals to eat them', 20, 40);
+
+  pop();
 
   var xBowl = windowWidth / 2;
   var yBowl = windowHeight / 2;
@@ -35,17 +43,14 @@ function draw() {
     var diBowl = windowWidth;
   }
 
+
   //milk bowl
   fill('slateblue');
   ellipse(xBowl, yBowl, diBowl);
   fill(255);
   ellipse(xBowl, yBowl, diBowl - diBowl / 15);
-  push()
-  fill(0);
-  textSize(20);
-  text('Click on the cereals to eat them',
-    10, 40)
-  pop();
+
+
 
   // spoon
   push()
@@ -92,16 +97,6 @@ function Cereal(_x, _y, _diameter) {
 
   // floating cereals
   this.move = function() {
-    // this.x += xDirection * this.speed;
-    // this.y += yDirection * this.speed;
-    // // vertical bouncing
-    // if (this.y > windowHeight  || this.y < 0) {
-    //   yDirection = -yDirection
-    // }
-    // // orizontal bouncing
-    // if (this.x > windowWidth  || this.x < 0) {
-    //   xDirection = -xDirection
-    // }
     push()
     frameRate(15);
     this.x = this.x + random(-10, 10);
