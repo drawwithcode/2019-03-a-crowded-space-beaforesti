@@ -79,7 +79,7 @@ pop();
     fill(240);
     textSize(100);
     textAlign(CENTER, CENTER);
-    text('yummy!', windowWidth / 2, windowHeight / 2);
+    text('yummy :P', windowWidth / 2, windowHeight / 2);
 }
 
 }
